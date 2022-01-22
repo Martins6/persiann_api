@@ -57,12 +57,3 @@ def download_data(
             os.remove(os.path.join(folder, f'{date_str}.bin'))
             os.remove(os.path.join(folder, f'{date_str}.bin.gz'))
     print('Data downloaded!')
-
-if __name__ == '__main__':
-    download_data(
-        from_date=datetime.date(2021, 12, 1),
-        to_date=datetime.date(2021, 12, 31),
-        folder='data/test_data',
-        lat_bb=(-35, 6),
-        lon_bb=(-69, -36)
-    )

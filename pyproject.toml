@@ -6,17 +6,8 @@ authors = ["martins6 <adrielfalcao@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = ">=3.8,<3.11"
-pandas = "^1.3.5"
 numpy = "^1.21.5"
-matplotlib = "^3.5.1"
-seaborn = "^0.11.2"
-jupyter = "^1.0.0"
 setuptools = "57.5.0"
-georasters = "^0.5.23"
-urbanaccess = "^0.2.2"
-pandana = "^0.6.1"
-folium = "^0.12.1"
-mapclassify = "^2.4.3"
 
 [tool.poetry.dev-dependencies]
 
