@@ -33,7 +33,6 @@ def get_PERSIANN_raw_daily_data_global(
         )
 
     diff_days = (to_date - from_date).days
-    print(diff_days)
 
     for i in range(diff_days+1):
         target_date = from_date + datetime.timedelta(days=i)
