@@ -75,3 +75,7 @@ See? This is the same data as the first original data!
 This is a longer example to put here, but in the [notebooks](notebooks/testing_persiann_api.ipynb) folder you can find the code to generate this picture:
 
 ![PERSIANN data for Brazil from 28st December of 2021.](github_images/PERSIANN_API_example_geopandas_georasters.png)
+
+# Contributions
+
+Contributions are very much welcome! Please, open issues and Pull Requests! There are lots to do. :)
