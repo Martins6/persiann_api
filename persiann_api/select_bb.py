@@ -7,12 +7,38 @@ import numpy as np
 from PIL import Image
 
 
-def geotiff_to_arr(geotiff_path):
+def geotiff_to_arr(geotiff_path:str) -> np.array:
+    """
+    Open the GeoTIFF file and turn into a numpy array. 
+
+    Args:
+        geotiff_path (str): the path of the GeoTIFF file.
+
+    Returns:
+        np.array: representing the corresponding values on each coordinate.
+    """
     arr = np.asarray(Image.open(geotiff_path, mode='r'))
     return arr
 
 
-def get_bb_geoarr(arr, lat_bb=None, lon_bb=None):
+def get_bb_geoarr_from_global_data(
+    arr:np.array,
+    lat_bb=None, lon_bb=None
+) -> np.array:
+    """
+    It takes an array of values representing the whole
+    globe and selects only the values inside the bounding box.
+
+    Args:
+        arr (np.array): np.array of (440, 1440) shape.
+        lat_bb (Tuple, optional): Tuple of limits in the latitude dimension.
+            Defaults to None, which brings the whole globe.
+        lon_bb (Tuple, optional): Tuple of limits in the longitude dimension.
+            Defaults to None, which brings the whole globe.
+
+    Returns:
+        np.array: np.array of (value, lat_value, lon_value).
+    """
     if lat_bb is None:
         lat_bb = (-60, 60)
     if lon_bb is None:

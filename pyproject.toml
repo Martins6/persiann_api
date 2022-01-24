@@ -8,8 +8,15 @@ authors = ["martins6 <adrielfalcao@gmail.com>"]
 python = ">=3.8,<3.11"
 numpy = "^1.21.5"
 setuptools = "57.5.0"
+Pillow = "^9.0.0"
+GDAL = ">=3.3.2"
 
 [tool.poetry.dev-dependencies]
+jupyter = "^1.0.0"
+pandas = "^1.4.0"
+matplotlib = "^3.5.1"
+georasters = "^0.5.23"
+geopandas = "^0.10.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

@@ -49,11 +49,21 @@ def download_data(
                 gzFile=os.path.join(folder, f'{date_str}.bin.gz')
             )
 
-            aux = select_bb.get_bb_geoarr(
+            geo_arr = select_bb.get_bb_geoarr_from_global_data(
                 select_bb.geotiff_to_arr(os.path.join(folder, f'{date_str}.tiff')),
                 lat_bb=lat_bb,
                 lon_bb=lon_bb
             )
+            geo_arr = geo_arr[:, :, 0].squeeze() # selecting only the values for each coord.
+
+            to_geotiff.write_geotiff_from_arr(
+                geo_arr[::-1], # must mirror to write correctly in the GeoTIFF format.
+                originx=lon_bb[0],
+                originy=lat_bb[0],
+                pixelsize=0.25,
+                OutputFile=os.path.join(folder, f'{date_str}.tiff')
+            )
+
             os.remove(os.path.join(folder, f'{date_str}.bin'))
             os.remove(os.path.join(folder, f'{date_str}.bin.gz'))
     print('Data downloaded!')

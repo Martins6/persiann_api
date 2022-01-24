@@ -27,6 +27,21 @@ def get_PERSIANN_raw_daily_data_global(
     to_date:datetime.date,
     local_folder:str
 ):
+    """
+    Download the PERSIANN data in the binary format (.bin)
+    given a set of dates and a local folder.
+
+    Args:
+        from_date (datetime.date): 
+        to_date (datetime.date):
+        local_folder (str): 
+
+    Raises:
+        Exception: '"from_date" must be lesser or equal to "to_date".'
+    
+    Returns:
+        None
+    """
     if not from_date <= to_date:
         raise Exception(
             '"from_date" must be lesser or equal to "to_date".'

@@ -12,7 +12,7 @@ The screenshot above was taken from https://chrsdata.eng.uci.edu/. Which is the 
 
 # Installation
 
-Install it throught pip or [Poetry](https://python-poetry.org/), if you already have the *[gdal]*(https://pypi.org/project/GDAL/) package.
+Install it throught pip or [Poetry](https://python-poetry.org/), if you already have the [gdal](https://pypi.org/project/GDAL/) package.
 
 ```bash
 pip install persiann_api
@@ -21,21 +21,27 @@ pip install persiann_api
 poetry add persiann_api
 ```
 
-The *gdal* package is so easy to straightforward install. Click in this link for the official guide in PyPi, click [here](https://pypi.org/project/GDAL/). 
+The *gdal* package is not so easy to straightforward install. Click in this link for the official guide in PyPi, click [here](https://pypi.org/project/GDAL/). 
 
 There is also this guide for Ubuntu users, click [here](https://mothergeo-py.readthedocs.io/en/latest/development/how-to/gdal-ubuntu-pkg.html). This is the summary for Ubuntu users:
 
 ```bash
-#!/usr/bin/env bash
 
 sudo add-apt-repository ppa:ubuntugis/ppa && sudo apt-get update
 sudo apt-get update
 sudo apt-get install gdal-bin
+
+ogrinfo --version
+```
+
+Then, install the specific version of GDAL from the previous output.
+
+```bash
 sudo apt-get install libgdal-dev
 export CPLUS_INCLUDE_PATH=/usr/include/gdal
 export C_INCLUDE_PATH=/usr/include/gdal
 
-pip install GDAL
+pip install GDAL==[SPECIFIC VERSION FROM THE 'ogrinfo' OUTPUT]
 ```
 
 # Usage
@@ -55,9 +61,9 @@ download_data(
     lat_bb=(-35, 6),
     lon_bb=(-69, -36)
 )
-# read the image with your favorite package
+# read the GeoTIFF with your favorite package
 geotiff_path = 'data/2021_12_1.tiff'
 arr = np.asarray(Image.open(geotiff_path, mode='r'))
 ```
 
-![PERSIANN data for Brazil from 1st December of 2021.](github_images/PERSIANN_example.png)
+![PERSIANN data for Brazil from 1st December of 2021.](github_images/PERSIANN_API_example.png)
