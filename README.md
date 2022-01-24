@@ -8,7 +8,7 @@ As our API currently download the data in the GeoTIFF format, every "pixel" in t
 
 ![PERSIANN data. Screenshot taken from https://chrsdata.eng.uci.edu/ .](github_images/PERSIANN_example.png)
 
-The screenshot above was taken from https://chrsdata.eng.uci.edu/. Which is the official site for the PERSIANN project.
+The screenshot above was taken from https://chrsdata.eng.uci.edu/, which is the official site for the PERSIANN project. This was taken from Brazil in the 28th of December!
 
 # Installation
 
@@ -54,16 +54,22 @@ from PIL import Image
 
 # downloads daily data and store each data from date inside the folder.
 download_data(
-    from_date=datetime.date(2021, 12, 1),
-    to_date=datetime.date(2021, 12, 31),
+    from_date=datetime.date(2021, 12, 28),
+    to_date=datetime.date(2021, 12, 28),
     folder='data/',
     # bounding box for Brazil
     lat_bb=(-35, 6),
     lon_bb=(-69, -36)
 )
 # read the GeoTIFF with your favorite package
-geotiff_path = 'data/2021_12_1.tiff'
-arr = np.asarray(Image.open(geotiff_path, mode='r'))
+geotiff_path = 'data/2021_12_28.tiff'
+arr = np.asarray(Image.open(geotiff_path, mode='r'))[::-1] # we must mirror the GeoTIFF.
 ```
 
-![PERSIANN data for Brazil from 1st December of 2021.](github_images/PERSIANN_API_example.png)
+![PERSIANN data for Brazil from 28st December of 2021.](github_images/PERSIANN_API_example.png)
+
+See? This is the same data as the first original data!
+
+This is a longer example to put here, but in the [notebooks](notebooks/testing_persiann_api.ipynb) folder you can find the code to generate this picture:
+
+![PERSIANN data for Brazil from 28st December of 2021.](github_images/PERSIANN_API_example_geopandas_georasters.png)
