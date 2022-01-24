@@ -1,8 +1,12 @@
 [tool.poetry]
 name = "persiann_api"
-version = "0.1.0"
+version = "0.1.1"
 description = "Unofficial PERSIANN Python API."
 authors = ["martins6 <adrielfalcao@gmail.com>"]
+license "The Unlicense"
+readme = "README.md"
+homepage = "https://github.com/Martins6/persiann_api"
+repository = "https://github.com/Martins6/persiann_api"
 
 [tool.poetry.dependencies]
 python = ">=3.8,<3.11"

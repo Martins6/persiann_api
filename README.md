@@ -63,7 +63,9 @@ download_data(
 )
 # read the GeoTIFF with your favorite package
 geotiff_path = 'data/2021_12_28.tiff'
-arr = np.asarray(Image.open(geotiff_path, mode='r'))[::-1] # we must mirror the GeoTIFF.
+arr = np.asarray(Image.open(geotiff_path, mode='r'))[::-1] # we must mirror the array for the GeoTIFF.
+plt.imshow(arr)
+plt.clim(0, 78)
 ```
 
 ![PERSIANN data for Brazil from 28st December of 2021.](github_images/PERSIANN_API_example.png)
